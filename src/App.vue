@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <TodoList
+      v-bind:todos="todos"
+    />
+    <!-- <router-view/> -->
   </div>
 </template>
+
+<script>
+import TodoList from '@/components/TodoList'
+export default {
+  name: 'app',
+  data () {
+    return {
+      todos: [
+        { id: 1, title: 'Купить хлеб', complited: false },
+        { id: 2, title: 'Купить масло', complited: false },
+        { id: 3, title: 'Купить молоко', complited: false }
+      ]
+    }
+  },
+  components: {
+    TodoList
+  }
+}
+</script>
 
 <style lang="sass">
 #app
@@ -15,13 +33,5 @@
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #2c3e50
-
-#nav
-  padding: 30px
-  a
-    font-weight: bold
-    color: #2c3e50
-    &.router-link-exact-active
-      color: #42b983
 
 </style>
