@@ -1,27 +1,41 @@
 <template>
   <div id="app">
+    <AddTodoElement
+      @add-todo="addTodo"
+    />
     <TodoList
       v-bind:todos="todos"
+      v-on:removeTodo="removeTodo"
     />
     <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
+import AddTodoElement from '@/components/AddTodoElement'
 import TodoList from '@/components/TodoList'
 export default {
   name: 'app',
   data () {
     return {
       todos: [
-        { id: 1, title: 'Купить хлеб', complited: false },
-        { id: 2, title: 'Купить масло', complited: false },
-        { id: 3, title: 'Купить молоко', complited: false }
+        { id: 1, title: 'Купить хлеб', completed: false },
+        { id: 2, title: 'Купить масло', completed: false },
+        { id: 3, title: 'Купить молоко', completed: false }
       ]
     }
   },
   components: {
-    TodoList
+    TodoList, AddTodoElement
+  },
+  methods: {
+    removeTodo (id) {
+      this.todos = this.todos.filter(t => t.id !== id)
+    },
+
+    addTodo (newTodo) {
+      this.todos.push(newTodo)
+    }
   }
 }
 </script>
@@ -33,5 +47,6 @@ export default {
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #2c3e50
+  max-width: 40rem
 
 </style>
