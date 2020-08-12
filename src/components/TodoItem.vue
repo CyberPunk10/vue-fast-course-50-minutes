@@ -1,13 +1,13 @@
 <template>
   <div>
     <li>
-      <span v-bind:class="{done: todo.completed}">
+      <label v-bind:class="{done: todo.completed}">
         <input
           type="checkbox"
           v-on:change="todo.completed=!todo.completed">
         <strong>{{ index + 1 }}</strong>
         {{ todo.title | uppercase}}
-      </span>
+      </label>
       <button
         class="rm"
         v-on:click="$emit('remove-todo', todo.id)"
@@ -42,7 +42,7 @@ li
   height: 3rem
   margin-bottom: 0.5rem
   border: 1px solid #cfcfcf
-  span
+  label
     input
       display: inline-block
       margin: 0 2rem
