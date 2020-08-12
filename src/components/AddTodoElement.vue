@@ -2,15 +2,23 @@
   <form @submit.prevent="onSubmit">
     <input type="text" v-model="title">
     <button type="submit">Create</button>
+    <SelectFilter @func="func"/>
   </form>
 </template>
 
 <script>
+import SelectFilter from '@/components/SelectFilter'
 export default {
   data () {
     return {
       title: ''
     }
+  },
+  components: {
+    SelectFilter
+  },
+  computed: {
+
   },
   methods: {
     onSubmit () {
@@ -25,6 +33,9 @@ export default {
 
         this.title = ''
       }
+    },
+    func (value) {
+      this.$emit('func', value)
     }
   }
 }

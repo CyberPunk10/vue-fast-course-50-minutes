@@ -13,29 +13,30 @@ export default {
       filter: 'all'
     }
   },
-  // watch: {
-  //   filter (value) {
-  //     console.log(value)
-  //   }
-  // },
-  computed: {
-    selectedFilter () {
-      if (this.filter === 'all') {
-        return 'all'
-      }
-      if (this.filter === 'completed') {
-        return 'completed'
-      }
-      if (this.filter === 'not-completed') {
-        return 'not-completed'
-      }
-      return null
+  watch: {
+    filter (value) {
+      this.$emit('func', value)
     }
   },
+  computed: {
+
+  },
   methods: {
-    pushFilterOption (selectedFilter) {
-      this.$emit('push-filter', selectedFilter)
-    }
+
   }
 }
 </script>
+
+<style scoped lang="sass">
+select
+  width: 8rem
+  height: 1.9rem
+  margin-left: 1rem
+  border: 1px solid #ccc
+  color: #2c3e50
+  transition: all .2s ease-out
+  padding: 0 .2rem
+  &:hover, &:focus
+    border-color: #999
+
+</style>

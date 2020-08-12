@@ -3,12 +3,8 @@
     <h2>Todo Application</h2>
     <AddTodoElement
       @add-todo="addTodo"
+      @func="func"
     />
-    <select v-model="filter">
-      <option value="all">All</option>
-      <option value="completed">Completed</option>
-      <option value="not-completed">Not completed</option>
-    </select>
     <Loader v-if="loading"/>
     <TodoList
       v-else-if="filteredTodos.length"
@@ -75,6 +71,10 @@ export default {
 
     addTodo (newTodo) {
       this.todos.push(newTodo)
+    },
+
+    func (value) {
+      this.filter = value
     }
   }
 }
