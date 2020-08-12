@@ -7,7 +7,6 @@
 
 <script>
 export default {
-  name: 'add-todo-element',
   data () {
     return {
       title: ''
@@ -32,24 +31,35 @@ export default {
 </script>
 
 <style scoped lang="sass">
- form
-    display: flex
-    align-items: center
-    height: 2rem
-    margin-bottom: 1rem
+form
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 2rem
+  margin-bottom: 1rem
 
-    $width: 7rem
-    $height: 1.4rem
-    $padding: .2rem
+  $width: 8rem
+  $mlButton: 1rem
+  $height: 1.4rem
+  $padding: .2rem
 
-    input
-      height: $height
-      width: calc(40rem - #{$width} - 1rem)
-      padding: $padding
-    button
-      width: $width
-      height: 2rem
-      margin-left: 1rem
-      padding: $padding
+  input
+    height: $height
+    width: calc(100% - #{$width} - #{$mlButton})
+    padding: $padding
+    border: 1px solid #ccc
+
+  button
+    width: $width
+    height: 1.9rem
+    margin-left: $mlButton
+    padding: $padding
+    border: 1px solid #ccc
+    color: #2c3e50
+    transition: all .2s ease-out
+    &:hover
+      background-color: #e8e8e8
+    &:active
+      background-color: #cfcfcf
 
 </style>

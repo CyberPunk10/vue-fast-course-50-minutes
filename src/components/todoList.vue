@@ -19,7 +19,6 @@ export default {
   props: [
     'todos'
   ],
-  // data:
   components: {
     TodoItem
   },
@@ -32,10 +31,10 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  ul
-    max-width: 40rem
-    list-style: none
-    margin: 0
-    padding: 0
+ul
+  max-width: 40rem
+  list-style: none
+  margin: 0
+  padding: 0
 
 </style>
